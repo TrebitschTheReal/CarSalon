@@ -7,11 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import carSalon.model.User;
+import carSalon.service.LoginService;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userName = request.getParameter("username");
+        String password = request.getParameter("password");
 
+        User user = new User(userName, password);
+        LoginService ls = new LoginService();
+
+        if(ls.userLoggedin(user)){
+            response.sendRedirect("inside");
+        }
+        else{
+            response.sendRedirect("login");
+        }
+
+        response.sendRedirect("login");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

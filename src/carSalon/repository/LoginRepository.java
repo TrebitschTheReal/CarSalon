@@ -9,8 +9,8 @@ public class LoginRepository {
 
     public boolean validateLoginQuery(User user) {
         boolean result = false;
-
         Connection con = new DatabaseConnector().createConnection();
+
         try {
             String loginQuery = "SELECT `user_security_level` FROM `users` WHERE `username` = ? AND `password` = ?";
             PreparedStatement pstm = con.prepareStatement(loginQuery);
@@ -18,15 +18,16 @@ public class LoginRepository {
             pstm.setString(2, user.getPassword());
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
-                result = true;
+                if (rs.getInt("user_security_level") >= 0) {
+                    result = true;
+                }
             }
-
             con.close();
-
-            return result;
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+        return result;
     }
 }

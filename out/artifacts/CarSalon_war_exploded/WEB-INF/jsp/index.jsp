@@ -16,8 +16,8 @@
     <div class="login-box container jumbotron p-5 mx-auto text-center">
         <form action="login" class="text-center" method="post">
             <div class="form-group">
-                <input name="username" type="text" placeholder="User Name" class="mb-1 form-control input-sm">
-                <input name="password" type="text" placeholder="Password" class="mb-3 form-control">
+                <input name="username" type="text" placeholder="Username" class="mb-1 form-control input-sm">
+                <input name="password" type="password" placeholder="Password" class="mb-3 form-control">
                 <input type="submit" value="Sign in" class="btn btn-dark px-5">
             </div>
         </form>

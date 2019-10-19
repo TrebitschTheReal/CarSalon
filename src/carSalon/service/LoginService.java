@@ -9,7 +9,7 @@ public class LoginService {
         return lr.validateLoginQuery(user);
     }
 
-    public boolean userLoggedin(User user){
+    public boolean userIsValid(User user){
         return isFriendOrOutsider(user);
     }
 }

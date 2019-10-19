@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 import carSalon.model.User;
 import carSalon.service.LoginService;
 
@@ -19,14 +20,12 @@ public class LoginServlet extends HttpServlet {
         User user = new User(userName, password);
         LoginService ls = new LoginService();
 
-        if(ls.userLoggedin(user)){
+        if (ls.userIsValid(user)) {
             response.sendRedirect("inside");
         }
-        else{
+        else {
             response.sendRedirect("login");
         }
-
-        response.sendRedirect("login");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -27,10 +27,6 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("userSecurityLevel", user.getUserSecurityLevel());
             response.sendRedirect("inside");
 
-
-
-
-            
         } else {
             response.sendRedirect("login");
         }

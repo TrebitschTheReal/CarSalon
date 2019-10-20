@@ -20,7 +20,7 @@ public class InsideServlet extends HttpServlet {
         if (session.getAttribute("userSecurityLevel") == null || (int) session.getAttribute("userSecurityLevel") < 0) {
             response.sendRedirect("login");
         } else {
-            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/inside.jsp");
+            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/main-inside-page.jsp");
             rd.forward(request, response);
         }
     }

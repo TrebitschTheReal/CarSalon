@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/global.css">
-
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/style/global.css" defer>
+    <script src="${pageContext.request.contextPath}/scripts/main.js" defer></script>
     <title>Car Salon</title>
 </head>
 <body>
-<div class="inner-body">
-    <p>Inside content</p>
-    <form action="logout">
-        <button type="submit" class="btn btn-dark px-5" id="logoutButton">Logout</button>
-    </form>
-</div>
+
+    <div class="inner-body">
+
+        <jsp:include page="inside-element-header.jsp"></jsp:include>
+        <jsp:include page="inside-element-content.jsp"></jsp:include>
+
+    </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

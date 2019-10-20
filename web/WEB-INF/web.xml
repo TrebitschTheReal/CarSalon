@@ -6,4 +6,15 @@
     <welcome-file-list>
         <welcome-file>login</welcome-file>
     </welcome-file-list>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>carSalon.securityFilter.SecurityFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/inside</url-pattern>
+    </filter-mapping>
+
 </web-app>

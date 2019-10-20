@@ -12,16 +12,11 @@ import java.io.IOException;
 @WebServlet("/inside")
 public class InsideServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/main-inside-page.jsp");
+        rd.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        if (session.getAttribute("userSecurityLevel") == null || (int) session.getAttribute("userSecurityLevel") < 0) {
-            response.sendRedirect("login");
-        } else {
-            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/main-inside-page.jsp");
-            rd.forward(request, response);
-        }
+
     }
 }

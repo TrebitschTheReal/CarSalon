@@ -21,7 +21,7 @@ public class SecurityFilter implements Filter {
         HttpSession session = req.getSession(false);
 
         if((session.getAttribute("userSecurityLevel") == null || (int)session.getAttribute("userSecurityLevel") < 0) && uri.endsWith("inside")){
-            System.out.println("Filter works!");
+            System.out.println("Filter works juhéé!");
             res.sendRedirect("login");
         }else{
             chain.doFilter(request, response);

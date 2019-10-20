@@ -22,6 +22,11 @@
             </div>
         </form>
     </div>
+    <div class="container m-5 text-light">
+        <p>Username: elek</p>
+        <p>pass: secret</p>
+    </div>
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

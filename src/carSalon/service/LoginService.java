@@ -1,15 +1,20 @@
 package carSalon.service;
+
 import carSalon.model.User;
 import carSalon.repository.LoginRepository;
 
 public class LoginService {
+    LoginRepository lr;
+    User user;
 
-    private boolean isFriendOrOutsider(User user){
-        LoginRepository lr = new LoginRepository();
-        return lr.validateLoginQuery(user);
+    public LoginService(User user) {
+        this.lr = new LoginRepository();
+        this.user = user;
+        isFriendOrOutsider(user);
+        user.setUserSecurityLevel(lr.getUserSecurityLevel());
     }
 
-    public boolean userIsValid(User user){
-        return isFriendOrOutsider(user);
+    private boolean isFriendOrOutsider(User user) {
+        return lr.validateLoginQuery(user);
     }
 }

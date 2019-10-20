@@ -19,13 +19,18 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         User user = new User(userName, password);
-        LoginService ls = new LoginService();
+        new LoginService(user);
 
-        if (ls.userIsValid(user)) {
+        if (user.getUserSecurityLevel() >= 0) {
             HttpSession session = request.getSession();
             session.setAttribute("name", user.getUserName());
-
+            session.setAttribute("userSecurityLevel", user.getUserSecurityLevel());
             response.sendRedirect("inside");
+
+
+
+
+            
         } else {
             response.sendRedirect("login");
         }

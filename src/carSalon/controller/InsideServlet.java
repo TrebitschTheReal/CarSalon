@@ -12,26 +12,16 @@ import java.io.IOException;
 @WebServlet("/inside")
 public class InsideServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        String quitButton = request.getParameter("logoutButton");
-//        if(quitButton != null) {
-//            HttpSession session=request.getSession();
-//            session.invalidate();
-//            response.setHeader("Cache-Control","no-cache");
-//            response.setHeader("Cache-Control","no-store");
-//            response.setHeader("Pragma","no-cache");
-//            response.sendRedirect("login");
-//        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session=request.getSession();
-
-        if(session.getAttribute("name") != null) {
+        HttpSession session = request.getSession();
+        if (session.getAttribute("userSecurityLevel") == null || (int) session.getAttribute("userSecurityLevel") < 0) {
+            response.sendRedirect("login");
+        } else {
             RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/inside.jsp");
             rd.forward(request, response);
-        }
-        else {
-            response.sendRedirect("login");
         }
     }
 }

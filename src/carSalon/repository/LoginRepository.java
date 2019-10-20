@@ -2,10 +2,13 @@ package carSalon.repository;
 
 import carSalon.model.User;
 
+import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.sql.SQLException;
 
+
 public class LoginRepository {
+    private int userSecurityLevel = -1;
 
     public boolean validateLoginQuery(User user) {
         boolean result = false;
@@ -19,6 +22,7 @@ public class LoginRepository {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 if (rs.getInt("user_security_level") >= 0) {
+                    this.userSecurityLevel = rs.getInt("user_security_level");
                     result = true;
                 }
             }
@@ -29,5 +33,9 @@ public class LoginRepository {
         }
 
         return result;
+    }
+
+    public int getUserSecurityLevel() {
+        return userSecurityLevel;
     }
 }

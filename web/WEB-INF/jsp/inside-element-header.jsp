@@ -2,16 +2,16 @@
 <header class="main--navbar">
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
         <div class="container">
-            <a class="navbar-brand" href="#">Car Salon</a>
+            <a class="navbar-brand" href="inside">Car Salon</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="inside?page=uploadcar">Upload new car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">List salon cars</a>
+                    <a class="nav-link mx-2" href="inside?page=listcars">List salon cars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Modify salon cars</a>
+                    <a class="nav-link" href="inside?page=modifycars">Modify salon cars</a>
                 </li>
             </ul>
             <form action="logout" class="form-inline my-2 my-lg-0">

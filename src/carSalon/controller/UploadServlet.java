@@ -29,10 +29,9 @@ public class UploadServlet extends HttpServlet {
             System.out.println("Upload failed!");
             e.printStackTrace();
         }
-        response.sendRedirect("inside?page=uploadcar");
 
-        //request.setAttribute("page", "uploadcar");
-        //this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/main-inside-page.jsp").forward(request, response);
+        request.setAttribute("test", "test test easdsadsadad");
+        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/inside-car-upload.jsp").forward(request, response);
 
     }
 

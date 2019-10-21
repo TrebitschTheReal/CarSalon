@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,14 +12,12 @@
     <title>Car Salon</title>
 </head>
 <body>
-
-    <div class="inner-body">
-
-        <jsp:include page="inside-element-header.jsp"></jsp:include>
-        <jsp:include page="inside-element-content.jsp"></jsp:include>
-
+<div class="inner-body">
+    <jsp:include page="inside-element-header.jsp"></jsp:include>
+    <div>
+        <!-- TODO: list cars -->
     </div>
-
+</div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

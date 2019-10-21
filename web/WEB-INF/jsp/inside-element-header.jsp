@@ -5,13 +5,13 @@
             <a class="navbar-brand" href="inside">Car Salon</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="inside?page=uploadcar">Upload new car</a>
+                    <a class="nav-link" href="carupload">Upload new car</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="inside?page=listcars">List cars</a>
+                    <a class="nav-link mx-2" href="listcar">List cars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="inside?page=modifycars">Modify cars</a>
+                    <a class="nav-link" href="modifylist">Modify cars</a>
                 </li>
             </ul>
             <a href="logout" class="text-light text-uppercase nav-link px-5" id="logoutButton">log out</a>

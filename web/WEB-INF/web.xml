@@ -15,6 +15,9 @@
     <filter-mapping>
         <filter-name>authenticationFilter</filter-name>
         <url-pattern>/inside</url-pattern>
+        <url-pattern>/carupload</url-pattern>
+        <url-pattern>/listcar</url-pattern>
+        <url-pattern>/modifylist</url-pattern>
     </filter-mapping>
 
     <error-page>

@@ -1,18 +1,14 @@
 package carSalon.controller;
 
 import carSalon.model.Car;
-import carSalon.model.User;
-import carSalon.service.LoginService;
-import carSalon.service.UploadCarService;
+import carSalon.service.CarService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/upload")
 public class UploadServlet extends HttpServlet {
@@ -22,7 +18,7 @@ public class UploadServlet extends HttpServlet {
 
         Car car = new Car(brand, color);
         try {
-            new UploadCarService(car);
+            new CarService(car);
             System.out.println("Car uploaded!");
             request.setAttribute("upload-complete", true);
         } catch (Exception e) {

@@ -15,7 +15,16 @@ public class ModifyListServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/inside-car-modify.jsp");
-        rd.forward(request, response);
+        String newBrand = request.getParameter("modify-brand");
+        String newColor = request.getParameter("modify-color");
+        String modifiableCarId = request.getParameter("choosedCar");
+
+        System.out.println(newBrand);
+        System.out.println(newColor);
+        System.out.println(modifiableCarId);
+
+        //TODO: esetleg scroll spy-t beletenni egy kereső inputra ami keyupra oda ugrik ahol matchol
+
+        response.sendRedirect("listcar");
     }
 }

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,32 +16,38 @@
     <jsp:include page="inside-element-header.jsp"/>
     <div class="container p-2">
         <p class="display-4 text-center mx-auto bg-dark text-light p-2">List of all cars</p>
-        <table class="table table-striped table-dark">
-            <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Color</th>
-                <th scope="col">Check</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="car" items="${cars}">
-            <tr>
-                <th scope="row">${car.id}</th>
-                <td>${car.brand}</td>
-                <td>${car.color}</td>
-                <td>
-                    <span>
-                        <form action="modifylist" method="get">
-                            <input class="form-check-input" type="radio" name="choosedCar" id="${car.id}">
-                        </form>
-                    </span>
-                </td>
-            </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+
+            <table class="table table-striped table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Select</th>
+                    <th scope="col" class="modify-brand">Modify Brand</th>
+                    <th scope="col" class="modify-color">Modify Color</th>
+                    <th scope="col" class="modify-button"></th>
+                </thead>
+                <tbody>
+                <c:forEach var="car" items="${cars}">
+                <form action="modifylist" method="get">
+                    <tr>
+                        <th scope="row">${car.id}</th>
+                        <td>${car.brand}</td>
+                        <td>${car.color}</td>
+                        <td>
+                            <span>
+                                <input class="form-check-input" type="radio" name="choosedCar" value="${car.id}">
+                            </span>
+                        </td>
+                        <td class="modify-brand"><input class="form-control-sm" type="text" name="modify-brand" id="${car.id}"></td>
+                        <td class="modify-color"><input class="form-control-sm" type="text" name="modify-color" id="${car.id}"></td>
+                        <td class="modify-button"><input class="btn btn-primary" type="submit" value="Modify data"></td>
+                    </tr>
+                </form>
+                </c:forEach>
+                </tbody>
+            </table>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

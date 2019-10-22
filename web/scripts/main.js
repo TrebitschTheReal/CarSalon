@@ -32,6 +32,8 @@ $(document).ready(function () {
     });
 
     ///////////////////////////////////////////
+    // hideModifyButtons();
+    ///////////////////////////////////////////
 
 
     function isBrandNotLongEnough() {
@@ -40,5 +42,11 @@ $(document).ready(function () {
 
     function isColorNotLongEnough() {
         return $('#upload-color').val().length < 3;
+    }
+
+    function hideModifyButtons() {
+        if($('input[name=choosedCar]:checked')){
+            alert('hidden');
+        }
     }
 });

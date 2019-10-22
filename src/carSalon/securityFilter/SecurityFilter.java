@@ -18,7 +18,7 @@ public class SecurityFilter implements Filter {
 
         String uri = req.getRequestURI();
 
-        HttpSession session = req.getSession(false);
+        HttpSession session = req.getSession();
 
         if ((session.getAttribute("userSecurityLevel") == null || (int) session.getAttribute("userSecurityLevel") < 0) && (uri.endsWith("inside") || uri.endsWith("carupload") || uri.endsWith("listcar") || uri.endsWith("modifylist"))) {
             System.out.println("Filter works juhéé!");

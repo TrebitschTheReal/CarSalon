@@ -19,9 +19,13 @@ public class ModifyListServlet extends HttpServlet {
         String newColor = request.getParameter("modify-color");
         String modifiableCarId = request.getParameter("choosedCar");
 
-        System.out.println(newBrand);
-        System.out.println(newColor);
-        System.out.println(modifiableCarId);
+        System.out.println("###############################");
+        System.out.println("Car id: " + modifiableCarId);
+        System.out.println("Car brand: " + newBrand);
+        System.out.println("Car color: " + newColor);
+        System.out.println("###############################");
+
+
 
         //TODO: esetleg scroll spy-t beletenni egy kereső inputra ami keyupra oda ugrik ahol matchol
 

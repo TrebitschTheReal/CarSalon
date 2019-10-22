@@ -17,37 +17,48 @@
     <div class="container p-2">
         <p class="display-4 text-center mx-auto bg-dark text-light p-2">List of all cars</p>
 
-            <table class="table table-striped table-dark">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Brand</th>
-                    <th scope="col">Color</th>
-                    <th scope="col">Select</th>
-                    <th scope="col" class="modify-brand">Modify Brand</th>
-                    <th scope="col" class="modify-color">Modify Color</th>
-                    <th scope="col" class="modify-button"></th>
-                </thead>
-                <tbody>
-                <c:forEach var="car" items="${cars}">
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Color</th>
+                <th scope="col">Select</th>
+                <th scope="col">Modify Brand</th>
+                <th scope="col">Modify Color</th>
+                <th scope="col"><!-- Modify Button --></th>
+                <th scope="col"><!-- Delete Button --></th>
+            </thead>
+            <tbody>
+
+            <c:forEach var="car" items="${cars}">
+                <c:set var="count" value="0" scope="page" />
+                <c:set var="count" value="${count + 1}" scope="page"/>
+
                 <form action="modifylist" method="get">
                     <tr>
-                        <th scope="row">${car.id}</th>
+                        <th scope="row">${car.id}.</th>
                         <td>${car.brand}</td>
                         <td>${car.color}</td>
                         <td>
                             <span>
-                                <input class="form-check-input" type="radio" name="choosedCar" value="${car.id}">
+                                <input class="form-check-input" type="checkbox" name="choosedCar" value="${car.id}" id="${count}">
                             </span>
                         </td>
-                        <td class="modify-brand"><input class="form-control-sm" type="text" name="modify-brand" id="${car.id}"></td>
-                        <td class="modify-color"><input class="form-control-sm" type="text" name="modify-color" id="${car.id}"></td>
-                        <td class="modify-button"><input class="btn btn-primary" type="submit" value="Modify data"></td>
-                    </tr>
+                        <td><input class="modify-brand form-control-sm" type="text" name="modify-brand" id="${count}"></td>
+                        <td><input class="modify-color form-control-sm" type="text" name="modify-color" id="${count}"></td>
+                        <td><input class="modify-button btn btn-primary" type="submit" value="Modify data"></td>
                 </form>
-                </c:forEach>
-                </tbody>
-            </table>
+                <form action="delete" type="get">
+                    <td class="modify-delete-button">
+                        <input hidden type="text" name="deleteCar" value="${car.id}">
+                        <input class="btn btn-danger" type="submit" value="Delete car">
+                    </td>
+                </form>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

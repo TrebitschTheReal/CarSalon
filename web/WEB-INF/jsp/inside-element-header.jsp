@@ -10,9 +10,6 @@
                 <li class="nav-item">
                     <a class="nav-link mx-2" href="listcar">List cars</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="modifylist">Modify cars</a>
-                </li>
             </ul>
             <a href="logout" class="text-light text-uppercase nav-link px-5" id="logoutButton">log out</a>
         </div>

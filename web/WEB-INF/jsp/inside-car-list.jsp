@@ -22,6 +22,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Brand</th>
                 <th scope="col">Color</th>
+                <th scope="col">Check</th>
             </tr>
             </thead>
             <tbody>
@@ -30,6 +31,13 @@
                 <th scope="row">${car.id}</th>
                 <td>${car.brand}</td>
                 <td>${car.color}</td>
+                <td>
+                    <span>
+                        <form action="modifylist" method="get">
+                            <input class="form-check-input" type="radio" name="choosedCar" id="${car.id}">
+                        </form>
+                    </span>
+                </td>
             </tr>
             </c:forEach>
             </tbody>

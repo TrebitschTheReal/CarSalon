@@ -14,16 +14,16 @@ import java.util.List;
 
 @WebServlet("/listcar")
 public class ListCarServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         CarService cs = new CarService();
         List<Car> listOfCars = cs.getAllCars();
-        request.setAttribute("cars", listOfCars);
 
+        request.setAttribute("cars", listOfCars);
         RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/inside-car-list.jsp");
         rd.forward(request, response);
     }

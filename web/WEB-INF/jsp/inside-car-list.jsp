@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,9 +13,27 @@
 </head>
 <body>
 <div class="inner-body">
-    <jsp:include page="inside-element-header.jsp"></jsp:include>
-    <div>
-        <!-- TODO: list cars -->
+    <jsp:include page="inside-element-header.jsp"/>
+    <div class="container p-2">
+        <p class="display-4 text-center mx-auto bg-dark text-light p-2">List of all cars</p>
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Color</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="car" items="${cars}">
+            <tr>
+                <th scope="row">${car.id}</th>
+                <td>${car.brand}</td>
+                <td>${car.color}</td>
+            </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

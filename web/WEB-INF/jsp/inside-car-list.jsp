@@ -42,11 +42,11 @@
                         <td>${car.color}</td>
                         <td>
                             <span>
-                                <input class="form-check-input" type="checkbox" name="choosedCar" value="${car.id}" id="${count}">
+                                <input class="modify-select-${count} form-check-input" type="checkbox" name="choosedCar" value="${car.id}">
                             </span>
                         </td>
-                        <td><input class="modify-brand form-control-sm" type="text" name="modify-brand" id="${count}"></td>
-                        <td><input class="modify-color form-control-sm" type="text" name="modify-color" id="${count}"></td>
+                        <td><input class="modify-brand-${count} form-control-sm" type="text" name="modify-brand"></td>
+                        <td><input class="modify-color-${count} form-control-sm" type="text" name="modify-color"></td>
                         <td><input class="modify-button btn btn-primary" type="submit" value="Modify data"></td>
                 </form>
                 <form action="delete" type="get">
@@ -57,6 +57,7 @@
                 </form>
                 </tr>
             </c:forEach>
+            <p hidden id="listLength"><!-- counter max value --> ${count}</p>
             </tbody>
         </table>
     </div>

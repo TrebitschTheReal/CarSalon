@@ -32,7 +32,7 @@ $(document).ready(function () {
     });
 
     ///////////////////////////////////////////
-    // hideModifyButtons();
+    disableModifyInputs();
     ///////////////////////////////////////////
 
 
@@ -44,9 +44,7 @@ $(document).ready(function () {
         return $('#upload-color').val().length < 3;
     }
 
-    function hideModifyButtons() {
-        if($('input[name=choosedCar]:checked')){
-            alert('hidden');
-        }
+    function disableModifyInputs() {
+        $('.modify-brand-2').attr('disabled', true);
     }
 });

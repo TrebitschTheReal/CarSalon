@@ -18,7 +18,8 @@ public class UploadServlet extends HttpServlet {
 
         Car car = new Car(brand, color);
         try {
-            new CarService(car);
+            CarService cs = new CarService();
+            cs.uploadCar(car);
             System.out.println("Car uploaded!");
             request.setAttribute("upload-complete", true);
         } catch (Exception e) {

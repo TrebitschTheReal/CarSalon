@@ -10,19 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarRepository {
-    Connection con;
 
-    public CarRepository(Car carObject) {
-        this.con = new DatabaseConnector().createConnection();
-        saveTheCar(carObject);
-    }
+    protected void saveTheCar(Car carObject){
+        Connection con = new DatabaseConnector().createConnection();
 
-    public CarRepository() {
-        this.con = new DatabaseConnector().createConnection();
-
-    }
-
-    private void saveTheCar(Car carObject){
         try {
             String loginQuery = "INSERT INTO `cars` (brand, color) VALUES (?, ?);";
             PreparedStatement pstm = con.prepareStatement(loginQuery);
@@ -45,7 +36,7 @@ public class CarRepository {
             PreparedStatement pstm = con.prepareStatement(loginQuery);
             ResultSet rs = pstm.executeQuery();
             while(rs.next()) {
-                cars.add(new Car(Integer.parseInt(rs.getString("id")), rs.getString("brand"), rs.getString("color")));
+                cars.add(new Car(rs.getString("id"), rs.getString("brand"), rs.getString("color")));
             }
             con.close();
 
@@ -54,5 +45,20 @@ public class CarRepository {
         }
 
         return cars;
+    }
+
+    protected void deleteCarFromDB(Car car){
+        Connection con = new DatabaseConnector().createConnection();
+
+        try {
+            String loginQuery = "DELETE FROM cars WHERE id = ?;";
+            PreparedStatement pstm = con.prepareStatement(loginQuery);
+            pstm.setString(1, car.getId());
+            pstm.execute();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

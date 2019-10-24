@@ -1,7 +1,7 @@
 package carSalon.model;
 
 public class Car {
-    int id;
+    private String id;
     private String brand;
     private String color;
 
@@ -10,11 +10,16 @@ public class Car {
         this.color = color;
     }
 
-    public Car(int id, String brand, String color) {
+    public Car(String id, String brand, String color) {
         this.id = id;
         this.brand = brand;
         this.color = color;
     }
+
+    public Car(String id) {
+        this.id = id;
+    }
+
 
     public String getBrand() {
         return brand;
@@ -32,11 +37,11 @@ public class Car {
         this.color = color;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

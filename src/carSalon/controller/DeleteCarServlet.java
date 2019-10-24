@@ -1,5 +1,8 @@
 package carSalon.controller;
 
+import carSalon.model.Car;
+import carSalon.service.CarService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +18,16 @@ public class DeleteCarServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String deletedCarId = request.getParameter("deleteCar");
-        System.out.print("Deletable car id: " + deletedCarId);
-
+        try {
+            String deletedCarId = request.getParameter("deleteCar");
+            Car car = new Car(deletedCarId);
+            CarService cs = new CarService();
+            cs.deleteCar(car);
+            System.out.printf("Car with ID %s deleted!", car.getId());
+        } catch (Exception e) {
+            System.out.println("Delete failed");
+            e.printStackTrace();
+        }
 
         response.sendRedirect("listcar");
     }

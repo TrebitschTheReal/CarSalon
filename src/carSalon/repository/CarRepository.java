@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CarRepository {
 
-    protected void saveTheCar(Car carObject){
+    protected void saveTheCar(Car carObject) {
         Connection con = new DatabaseConnector().createConnection();
 
         try {
@@ -35,7 +35,7 @@ public class CarRepository {
             String loginQuery = "SELECT id, brand, color FROM cars;";
             PreparedStatement pstm = con.prepareStatement(loginQuery);
             ResultSet rs = pstm.executeQuery();
-            while(rs.next()) {
+            while (rs.next()) {
                 cars.add(new Car(rs.getString("id"), rs.getString("brand"), rs.getString("color")));
             }
             con.close();
@@ -47,7 +47,7 @@ public class CarRepository {
         return cars;
     }
 
-    protected void deleteCarFromDB(Car car){
+    protected void deleteCarFromDB(Car car) {
         Connection con = new DatabaseConnector().createConnection();
 
         try {
@@ -66,14 +66,29 @@ public class CarRepository {
         Connection con = new DatabaseConnector().createConnection();
 
         try {
-            String loginQuery = "UPDATE cars SET brand = ?, color = ? WHERE id = ?;";
-            PreparedStatement pstm = con.prepareStatement(loginQuery);
-            pstm.setString(1, car.getBrand());
-            pstm.setString(2, car.getColor());
-            pstm.setString(3, car.getId());
-            pstm.execute();
-
-            con.close();
+            if (car.getBrand().equals("")) {
+                String loginQuery = "UPDATE cars SET color = ? WHERE id = ?;";
+                PreparedStatement pstm = con.prepareStatement(loginQuery);
+                pstm.setString(1, car.getColor());
+                pstm.setString(2, car.getId());
+                pstm.execute();
+                con.close();
+            } else if (car.getColor().equals("")) {
+                String loginQuery = "UPDATE cars SET brand = ? WHERE id = ?;";
+                PreparedStatement pstm = con.prepareStatement(loginQuery);
+                pstm.setString(1, car.getBrand());
+                pstm.setString(2, car.getId());
+                pstm.execute();
+                con.close();
+            } else {
+                String loginQuery = "UPDATE cars SET brand = ?, color = ? WHERE id = ?;";
+                PreparedStatement pstm = con.prepareStatement(loginQuery);
+                pstm.setString(1, car.getBrand());
+                pstm.setString(2, car.getColor());
+                pstm.setString(3, car.getId());
+                pstm.execute();
+                con.close();
+            }
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

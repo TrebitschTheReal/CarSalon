@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Okt 24. 10:54
+-- Létrehozás ideje: 2019. Okt 24. 11:12
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.9
 
@@ -39,10 +39,11 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `brand`, `color`) VALUES
-(7, ''Opel'', ''piros''),
-(19, ''Suzuki'', ''zold''),
-(22, ''Audi'', ''fekete''),
-(23, ''Lada'', ''piros'');
+(7, 'Opel', 'piros'),
+(19, 'Suzuki', 'zold'),
+(22, 'Audi', 'fekete'),
+(23, 'Lada', 'sarga'),
+(25, 'Volvo', 'fekete');
 
 -- --------------------------------------------------------
 
@@ -62,8 +63,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `user_security_level`) VALUES
-(1, ''a'', ''a'', 0),
-(2, ''elek'', ''secret'', 0);
+(1, 'a', 'a', 0),
+(2, 'elek', 'secret', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -89,7 +90,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT a táblához `users`

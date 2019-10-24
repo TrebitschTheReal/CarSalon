@@ -13,4 +13,5 @@ Default db connector lines in my code:
 (please modify it by your own data after cloning)
 
  Class.forName("com.mysql.cj.jdbc.Driver");
+ 
  con = DriverManager.getConnection("jdbc:mysql://localhost/javaszombathazi", "javaszombathazi", "12345");

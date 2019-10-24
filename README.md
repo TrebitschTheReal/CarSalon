@@ -7,7 +7,7 @@ Installation:
 - create an artifact to your server
 - mark directory as source -> /CarSalon/src
 - add jstl:jstl:1.2 to modules - libraries
-- run javaszombathazi.sql to your db server
+- run javaszombathazi.sql in your db server
 
 Default db connector lines in my code:
 (please modify it by your own data after cloning)

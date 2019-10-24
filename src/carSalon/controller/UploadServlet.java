@@ -26,10 +26,7 @@ public class UploadServlet extends HttpServlet {
             System.out.println("Upload failed!");
             e.printStackTrace();
         }
-
-        request.setAttribute("test", "test test easdsadsadad");
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/inside-car-upload.jsp").forward(request, response);
-
+        response.sendRedirect("listcar");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

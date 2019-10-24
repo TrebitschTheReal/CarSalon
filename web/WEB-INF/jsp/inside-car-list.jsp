@@ -23,7 +23,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Brand</th>
                 <th scope="col">Color</th>
-                <th scope="col">Select</th>
+                <th scope="col"></th>
                 <th scope="col">Modify Brand</th>
                 <th scope="col">Modify Color</th>
                 <th scope="col"><!-- Modify Button --></th>
@@ -40,14 +40,10 @@
                         <th scope="row">${car.id}.</th>
                         <td>${car.brand}</td>
                         <td>${car.color}</td>
-                        <td>
-                            <span>
-                                <input class="modify-select-${count} form-check-input" type="checkbox" name="choosedCar" value="${car.id}">
-                            </span>
-                        </td>
-                        <td><input class="modify-brand-${count} form-control-sm" type="text" name="modify-brand"></td>
-                        <td><input class="modify-color-${count} form-control-sm" type="text" name="modify-color"></td>
-                        <td><input class="modify-button btn btn-primary" type="submit" value="Modify data"></td>
+                        <td><input hidden type="text"name="choosedCar" value="${car.id}"></td>
+                        <td><input class="modify-brand-${count} form-control-sm" type="text" name="modify-brand" id="modify-brand" data-container="body" data-toggle="popover-modify-brand" data-placement="left" data-content="Modifiable car's brand and type need to be minimum 3 chars long!"></td>
+                        <td><input class="modify-color-${count} form-control-sm" type="text" name="modify-color" id="modify-color" data-container="body" data-toggle="popover-modify-color" data-placement="bottom" data-content="Color must be minimum 3 characters long"></td>
+                        <td><input class="modify-button btn btn-primary" type="submit" value="Modify data" id="modify-submit"></td>
                 </form>
                 <form action="delete" type="get">
                     <td class="modify-delete-button">

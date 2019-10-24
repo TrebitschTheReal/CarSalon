@@ -1,50 +1,33 @@
 $(document).ready(function () {
-    $('#upload-brand').keyup(function () {
-        if (isBrandNotLongEnough()) {
-            $('#upload-submit').attr('disabled', true);
-            $('[data-toggle="popover-brand"]').popover('show');
-            $('#upload-brand').addClass('bg-danger');
-        } else {
-            if (!isColorNotLongEnough()) {
-                $('#upload-submit').removeAttr('disabled');
-            }
-            $('[data-toggle="popover-brand"]').popover('hide');
-            $('#upload-brand').removeClass('bg-danger');
-            $('#upload-brand').addClass('bg-success');
-        }
-    });
+
+
+    manageCarsInputValidation('#upload-brand', '#upload-color', 'popover-upload-brand', '#upload-submit');
+    manageCarsInputValidation('#upload-color', '#upload-brand', 'popover-upload-color', '#upload-submit');
+
+
+    // manageCarsInputValidation('#modify-brand', '#modify-color', 'popover-modify-brand', '#modify-submit');
+    // manageCarsInputValidation('#modify-color', '#modify-brand', 'popover-modify-color', '#modify-submit');
 
     ///////////////////////////////////////////
 
-    $('#upload-color').keyup(function () {
-        if (isColorNotLongEnough()) {
-            $('#upload-submit').attr('disabled', true);
-            $('[data-toggle="popover-color"]').popover('show');
-            $('#upload-color').addClass('bg-danger');
-        } else {
-            if (!isBrandNotLongEnough()) {
-                $('#upload-submit').removeAttr('disabled');
-            }
-            $('[data-toggle="popover-color"]').popover('hide');
-            $('#upload-color').removeClass('bg-danger');
-            $('#upload-color').addClass('bg-success');
-        }
-    });
-
-    ///////////////////////////////////////////
-    disableModifyInputs();
-    ///////////////////////////////////////////
-
-
-    function isBrandNotLongEnough() {
-        return $('#upload-brand').val().length < 3;
+    function isInputNotLongEnough(id) {
+        return $(id).val().length < 3;
     }
 
-    function isColorNotLongEnough() {
-        return $('#upload-color').val().length < 3;
-    }
-
-    function disableModifyInputs() {
-        $('.modify-brand-2').attr('disabled', true);
+    function manageCarsInputValidation(inputBrand, inputColor, popover, submitButton) {
+        $(inputBrand).keyup(function () {
+            if (isInputNotLongEnough(inputBrand)) {
+                $(submitButton).attr('disabled', true);
+                $('[data-toggle="' + popover + '"]').popover('show');
+                $(inputBrand).addClass('bg-danger');
+            } else {
+                if (!isInputNotLongEnough(inputColor)) {
+                    $(submitButton).removeAttr('disabled');
+                }
+                $('[data-toggle="' + popover + '"]').popover('hide');
+                $(inputBrand).removeClass('bg-danger');
+                $(inputBrand).addClass('bg-success');
+            }
+        });
     }
 });

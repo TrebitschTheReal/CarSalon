@@ -1,5 +1,8 @@
 package carSalon.controller;
 
+import carSalon.model.Car;
+import carSalon.service.CarService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,16 +22,19 @@ public class ModifyListServlet extends HttpServlet {
         String newColor = request.getParameter("modify-color");
         String modifiableCarId = request.getParameter("choosedCar");
 
-        System.out.println("###############################");
-        System.out.println("Car id: " + modifiableCarId);
-        System.out.println("Car brand: " + newBrand);
-        System.out.println("Car color: " + newColor);
-        System.out.println("###############################");
+        Car car = new Car(modifiableCarId, newBrand, newColor);
 
-
-
-        //TODO: esetleg scroll spy-t beletenni egy kereső inputra ami keyupra oda ugrik ahol matchol
-
+        try {
+            CarService cs = new CarService();
+            cs.modifyCar(car);
+            System.out.println("Car successfully modified!");
+            request.setAttribute("upload-complete", true);
+        } catch (Exception e) {
+            System.out.println("Car modification failed");
+            e.printStackTrace();
+        }
         response.sendRedirect("listcar");
     }
+    //TODO: esetleg scroll spy-t beletenni egy kereső inputra ami keyupra oda ugrik ahol matchol
+
 }

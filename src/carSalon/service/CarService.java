@@ -13,8 +13,8 @@ public class CarService extends CarRepository {
     public List<Car> getAllCars(){
         return getCarList();
     }
-
     public void deleteCar(Car car){
         deleteCarFromDB(car);
     }
+    public void modifyCar(Car car) { modifyCarInDB(car);}
 }

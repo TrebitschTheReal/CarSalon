@@ -61,4 +61,23 @@ public class CarRepository {
             System.out.println(e.getMessage());
         }
     }
+
+    protected void modifyCarInDB(Car car) {
+        Connection con = new DatabaseConnector().createConnection();
+
+        try {
+            String loginQuery = "UPDATE cars SET brand = ?, color = ? WHERE id = ?;";
+            PreparedStatement pstm = con.prepareStatement(loginQuery);
+            pstm.setString(1, car.getBrand());
+            pstm.setString(2, car.getColor());
+            pstm.setString(3, car.getId());
+            pstm.execute();
+
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 }

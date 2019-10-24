@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2019. Okt 24. 08:15
+-- Létrehozás ideje: 2019. Okt 24. 10:54
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.9
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cars` (
-  `id` int(250) NOT NULL,
+  `id` int(255) NOT NULL,
   `brand` varchar(45) NOT NULL,
   `color` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -39,16 +39,10 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `brand`, `color`) VALUES
-(3, 'Opel', 'piros'),
-(5, 'Suzuki', 'zold'),
-(6, 'Opel', 'kek'),
-(26, 'asdad', 'asdad'),
-(27, 'assaa', 'dasasd'),
-(28, 'asdasd', 'asdasd'),
-(29, 'sdad', 'adad'),
-(31, 'sdfdsf', 'dsfdsf'),
-(36, 'sdada', 'ada'),
-(40, 'sdfdsf', 'sdf');
+(7, ''Opel'', ''piros''),
+(19, ''Suzuki'', ''zold''),
+(22, ''Audi'', ''fekete''),
+(23, ''Lada'', ''piros'');
 
 -- --------------------------------------------------------
 
@@ -57,10 +51,10 @@ INSERT INTO `cars` (`id`, `brand`, `color`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(255) NOT NULL,
-  `username` varchar(45) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
-  `password` varchar(45) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
-  `user_security_level` int(1) NOT NULL DEFAULT 0
+  `id` int(250) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `user_security_level` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -68,7 +62,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `user_security_level`) VALUES
-(1, 'elek', 'secret', 0);
+(1, ''a'', ''a'', 0),
+(2, ''elek'', ''secret'', 0);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -94,13 +89,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT a táblához `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT a táblához `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

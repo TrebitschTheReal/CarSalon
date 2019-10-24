@@ -9,7 +9,7 @@ Installation:
 - add jstl:jstl:1.2 to modules - libraries
 - run javaszombathazi.sql to your db server
 
-Default db connector liens in my code:
+Default db connector lines in my code:
 (please modify it by your own data after cloning)
 
  Class.forName("com.mysql.cj.jdbc.Driver");

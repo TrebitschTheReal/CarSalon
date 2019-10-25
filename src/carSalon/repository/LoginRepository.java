@@ -8,10 +8,7 @@ import java.sql.SQLException;
 
 
 public class LoginRepository {
-    private int userSecurityLevel = -1;
-
-    public boolean validateLoginQuery(User user) {
-        boolean result = false;
+    public void validateLoginQuery(User user) {
         Connection con = new DatabaseConnector().createConnection();
 
         try {
@@ -22,8 +19,7 @@ public class LoginRepository {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 if (rs.getInt("user_security_level") >= 0) {
-                    this.userSecurityLevel = rs.getInt("user_security_level");
-                    result = true;
+                    user.setUserSecurityLevel(rs.getInt("user_security_level"));
                 }
             }
             con.close();
@@ -31,11 +27,5 @@ public class LoginRepository {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
-        return result;
-    }
-
-    public int getUserSecurityLevel() {
-        return userSecurityLevel;
     }
 }
